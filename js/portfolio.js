@@ -36,8 +36,12 @@
   }
 
   document.querySelectorAll('.cert-image-wrap img').forEach(img => {
-    img.addEventListener('load', () => img.classList.add('loaded'));
-    img.addEventListener('error', () => { img.style.display = 'none'; });
+    if (img.complete && img.naturalWidth > 0) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load', () => img.classList.add('loaded'));
+      img.addEventListener('error', () => { img.style.display = 'none'; });
+    }
   });
 
   /* ── PROJECT FILTERS ── */
@@ -47,7 +51,11 @@
   filters.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
-      filters.forEach(b => b.classList.toggle('active', b === btn));
+      filters.forEach(b => {
+        const active = b === btn;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-selected', active);
+      });
       cards.forEach(card => {
         const show = filter === 'all' || card.dataset.category === filter;
         card.classList.toggle('is-hidden', !show);

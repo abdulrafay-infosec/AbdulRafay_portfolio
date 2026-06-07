@@ -41,7 +41,7 @@
             revealObs.unobserve(e.target);
           }
         });
-      }, { threshold: 0.1 });
+      }, { threshold: 0.08 });
       revealEls.forEach(el => revealObs.observe(el));
     }
   }
@@ -73,5 +73,17 @@
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
       });
     }
+  }
+
+  /* ── LINKEDIN CAROUSEL DOTS ── */
+  const liC = document.getElementById('liCarousel');
+  if (liC) {
+    liC.addEventListener('scroll', () => {
+      const idx = Math.round(liC.scrollLeft / 320);
+      for (let i = 0; i < 5; i++) {
+        const d = document.getElementById('liDot' + i);
+        if (d) d.style.background = i === idx ? 'var(--blue)' : 'var(--border)';
+      }
+    }, { passive: true });
   }
 })();

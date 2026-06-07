@@ -285,7 +285,7 @@ nav.scrolled {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: var(--section-y) var(--page-pad);
+  padding: 4.5rem 7%;
 }
 
 .section-header {
@@ -296,7 +296,7 @@ nav.scrolled {
 }
 
 .section-number {
-  font-family: var(--font-mono);
+  font-family: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--blue);

@@ -17,23 +17,16 @@
     }, { passive: true });
   }
 
-  const form = document.getElementById('contactForm');
-  const success = document.getElementById('formSuccess');
-  if (form) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = form.querySelector('[name="name"]').value.trim();
-      const email = form.querySelector('[name="email"]').value.trim();
-      const message = form.querySelector('[name="message"]').value.trim();
-      const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-      window.location.href = `mailto:Abdul.rafay.cs@proton.me?subject=${subject}&body=${body}`;
-      if (success) {
-        success.classList.add('show');
-        success.textContent = 'Your email client should open shortly. If it does not, email Abdul.rafay.cs@proton.me directly.';
-      }
-    });
-  }
+  /* ── CONTACT FORM ── */
+  document.getElementById('contactForm') && document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const msg = document.getElementById('contactMessage').value;
+    const subject = encodeURIComponent('Portfolio Inquiry from ' + name);
+    const body = encodeURIComponent('Hi Abdul Rafay,\n\n' + msg + '\n\nFrom: ' + name + '\nReply to: ' + email);
+    window.location.href = 'mailto:Abdul.rafay.cs@proton.me?subject=' + subject + '&body=' + body;
+  });
 
   document.querySelectorAll('.cert-image-wrap img').forEach(img => {
     if (img.complete && img.naturalWidth > 0) {
@@ -47,6 +40,7 @@
   /* ── PROJECT FILTERS ── */
   const filters = document.querySelectorAll('.project-filter');
   const cards = document.querySelectorAll('.project-card');
+  const rows = document.querySelectorAll('.project-row');
 
   filters.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -59,6 +53,9 @@
       cards.forEach(card => {
         const show = filter === 'all' || card.dataset.category === filter;
         card.classList.toggle('is-hidden', !show);
+      });
+      rows.forEach(row => {
+        row.style.display = (filter === 'all' || row.dataset.category === filter) ? 'grid' : 'none';
       });
     });
   });

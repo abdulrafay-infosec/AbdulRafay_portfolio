@@ -11,7 +11,7 @@
         const expSection = document.getElementById('experience');
         if (expSection) {
           const rect = expSection.getBoundingClientRect();
-          expBg.style.transform = `translateY(${-rect.top * 0.12}px)`;
+          expBg.style.transform = `translateY(${rect.top * 0.12}px)`;
         }
       }
     }, { passive: true });

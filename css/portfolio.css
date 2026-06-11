@@ -14,7 +14,7 @@
 
 #hero {
   width: 100%;
-  min-height: auto;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   align-items: center;
@@ -727,7 +727,7 @@
 .exp-bg-text {
   position: absolute;
   left: -2%;
-  bottom: 0;
+  top: 5%;
   font-family: var(--font-serif);
   font-size: clamp(6rem, 14vw, 12rem);
   font-weight: 700;
@@ -804,8 +804,8 @@
 }
 
 .exp-points li {
-  display: flex;
-  gap: 0.75rem;
+  position: relative;
+  padding-left: 1.25rem;
   font-size: var(--text-base);
   color: #b8c8e0;
   line-height: var(--leading);
@@ -815,8 +815,9 @@
 
 .exp-points li::before {
   content: '—';
+  position: absolute;
+  left: 0;
   color: #3d4d6a;
-  flex-shrink: 0;
 }
 
 .contact-grid {
@@ -1188,17 +1189,17 @@
 
 /* ── ULTRAWIDE CONSTRAINT ── */
 .section-wrap {
-  max-width: 1440px;
+  max-width: none;
   margin: 0 auto;
 }
 
 #hero {
-  max-width: 1440px;
+  max-width: none;
   margin: 0 auto;
 }
 
 .stats-strip {
-  max-width: 1440px;
+  max-width: none;
   margin: 0 auto;
 }
 

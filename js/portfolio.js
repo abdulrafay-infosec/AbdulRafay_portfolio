@@ -84,14 +84,36 @@
     }
   });
 
-  /* ── GITHUB LIVE META ── */
+  /* ── GITHUB LIVE META (with localStorage caching) ── */
   const metaEls = document.querySelectorAll('.project-gh-meta[data-repo]');
-  const cache = new Map();
+  const GH_CACHE_KEY = 'gh_meta_cache';
+  const GH_CACHE_TTL = 60 * 60 * 1000; // 1 hour
+
+  function getGHCache() {
+    try {
+      const raw = localStorage.getItem(GH_CACHE_KEY);
+      if (!raw) return {};
+      const parsed = JSON.parse(raw);
+      if (Date.now() - (parsed._ts || 0) > GH_CACHE_TTL) {
+        localStorage.removeItem(GH_CACHE_KEY);
+        return {};
+      }
+      return parsed;
+    } catch { return {}; }
+  }
+
+  function setGHCache(cache) {
+    cache._ts = Date.now();
+    try { localStorage.setItem(GH_CACHE_KEY, JSON.stringify(cache)); } catch {}
+  }
+
+  const ghCache = getGHCache();
 
   metaEls.forEach(async el => {
     const repo = el.dataset.repo;
-    if (!repo || cache.has(repo)) {
-      if (cache.has(repo)) el.textContent = cache.get(repo);
+    if (!repo) return;
+    if (ghCache[repo]) {
+      el.textContent = ghCache[repo];
       return;
     }
     try {
@@ -101,7 +123,8 @@
       const lang = data.language || 'Code';
       const updated = new Date(data.updated_at).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
       const text = `${lang} · Updated ${updated}`;
-      cache.set(repo, text);
+      ghCache[repo] = text;
+      setGHCache(ghCache);
       el.textContent = text;
     } catch {
       el.textContent = 'Public repo';

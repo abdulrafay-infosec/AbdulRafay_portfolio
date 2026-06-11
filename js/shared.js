@@ -27,6 +27,17 @@
         document.body.style.overflow = '';
       });
     });
+
+    /* Escape key closes mobile menu */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        toggle.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        toggle.focus();
+      }
+    });
   }
 
   const revealEls = document.querySelectorAll('.reveal');
@@ -60,13 +71,20 @@
         cursor.style.top = my + 'px';
       });
 
+      let animRunning = true;
       (function animRing() {
+        if (!animRunning) { requestAnimationFrame(animRing); return; }
         rx += (mx - rx) * 0.12;
         ry += (my - ry) * 0.12;
         ring.style.left = rx + 'px';
         ring.style.top = ry + 'px';
         requestAnimationFrame(animRing);
       })();
+
+      /* Pause cursor animation when tab is hidden */
+      document.addEventListener('visibilitychange', () => {
+        animRunning = !document.hidden;
+      });
 
       document.querySelectorAll('a, button, .cred-card, .cert-item, .skill-chip, .project-card, .project-filter, input, textarea').forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));

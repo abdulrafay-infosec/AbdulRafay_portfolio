@@ -4,7 +4,7 @@
   --ink:       #0d0f14;
   --ink2:      #1c2030;
   --slate:     #2e3548;
-  --muted:     #5c6478;
+  --muted:     #4a5568;
   --paper:     #f0ede8;
   --cream:     #faf9f6;
   --blue:      #1e4ab8;
@@ -296,7 +296,7 @@ nav.scrolled {
 }
 
 .section-number {
-  font-family: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+  font-family: 'JetBrains Mono', ui-monospace, Consolas, monospace;
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--blue);
@@ -493,7 +493,7 @@ footer a:hover { color: #c5d4f5; }
   color: var(--slate);
 }
 
-.cert-image-wrap { position: relative; }
+
 
 .cert-image-wrap img {
   display: none;

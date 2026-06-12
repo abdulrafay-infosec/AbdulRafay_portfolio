@@ -18,10 +18,10 @@
   margin: 0 auto;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1.2fr 1fr;
   align-items: center;
   padding: clamp(6rem, 10vw, 8rem) 2rem 4rem;
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: clamp(1rem, 4vw, 3rem);
   position: relative;
   overflow: hidden;
 }
@@ -53,7 +53,7 @@
 .hero-intro-wrapper {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.25rem;
   margin-bottom: 1rem;
 }
 

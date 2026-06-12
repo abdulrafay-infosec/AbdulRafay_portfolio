@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" fill="none">
+  <!-- Network / Plexus Background Pattern -->
+  <defs>
+    <style>
+      .node { fill: rgba(30, 74, 184, 0.2); }
+      .link { stroke: rgba(30, 74, 184, 0.1); stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- Links -->
+  <line x1="200" y1="300" x2="400" y2="150" class="link"/>
+  <line x1="200" y1="300" x2="150" y2="550" class="link"/>
+  <line x1="400" y1="150" x2="700" y2="250" class="link"/>
+  <line x1="150" y1="550" x2="500" y2="600" class="link"/>
+  <line x1="500" y1="600" x2="700" y2="250" class="link"/>
+  <line x1="700" y1="250" x2="1000" y2="150" class="link"/>
+  <line x1="500" y1="600" x2="850" y2="800" class="link"/>
+  <line x1="850" y1="800" x2="1200" y2="650" class="link"/>
+  <line x1="1000" y1="150" x2="1200" y2="650" class="link"/>
+  <line x1="1000" y1="150" x2="1400" y2="300" class="link"/>
+  <line x1="1200" y1="650" x2="1550" y2="500" class="link"/>
+  <line x1="1400" y1="300" x2="1550" y2="500" class="link"/>
+  <line x1="1550" y1="500" x2="1800" y2="200" class="link"/>
+  <line x1="1550" y1="500" x2="1700" y2="850" class="link"/>
+  <line x1="1200" y1="650" x2="1700" y2="850" class="link"/>
+  
+  <line x1="50" y1="100" x2="200" y2="300" class="link"/>
+  <line x1="50" y1="100" x2="400" y2="150" class="link"/>
+  <line x1="150" y1="550" x2="300" y2="900" class="link"/>
+  <line x1="300" y1="900" x2="850" y2="800" class="link"/>
+  <line x1="850" y1="800" x2="1300" y2="1000" class="link"/>
+  <line x1="1300" y1="1000" x2="1700" y2="850" class="link"/>
+
+  <!-- Nodes -->
+  <circle cx="50" cy="100" r="4" class="node"/>
+  <circle cx="200" cy="300" r="6" class="node"/>
+  <circle cx="400" cy="150" r="5" class="node"/>
+  <circle cx="150" cy="550" r="7" class="node"/>
+  <circle cx="500" cy="600" r="6" class="node"/>
+  <circle cx="700" cy="250" r="8" class="node"/>
+  <circle cx="1000" cy="150" r="5" class="node"/>
+  <circle cx="850" cy="800" r="7" class="node"/>
+  <circle cx="1200" cy="650" r="6" class="node"/>
+  <circle cx="1400" cy="300" r="5" class="node"/>
+  <circle cx="1550" cy="500" r="8" class="node"/>
+  <circle cx="1800" cy="200" r="6" class="node"/>
+  <circle cx="1700" cy="850" r="5" class="node"/>
+  <circle cx="300" cy="900" r="5" class="node"/>
+  <circle cx="1300" cy="1000" r="6" class="node"/>
+</svg>

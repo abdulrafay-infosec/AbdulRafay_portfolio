@@ -141,12 +141,10 @@ class PlexusSystem {
     this.dust = [];
 
     // Optimized node count for smooth 60fps
-    const numParticles = Math.min(window.innerWidth / 10, 150); 
+    const numParticles = Math.min(window.innerWidth / 8, 250); 
     for (let i = 0; i < numParticles; i++) {
-      const angle = Math.random() * Math.PI * 2;
-      const radius = Math.pow(Math.random(), 3) * (this.canvas.width * 0.4); 
-      const x = this.centerX + Math.cos(angle) * radius;
-      const y = this.centerY + Math.sin(angle) * radius;
+      const x = Math.random() * this.canvas.width;
+      const y = Math.random() * this.canvas.height;
       this.particles.push(new PlexusNode(x, y, this));
     }
 
@@ -187,7 +185,7 @@ class PlexusSystem {
         const distSq = dx*dx + dy*dy;
 
         if (distSq < maxDistSq) {
-          const opacity = (1 - distSq / maxDistSq) * 0.4;
+          const opacity = (1 - distSq / maxDistSq) * 0.7;
           
           let finalOpacity = opacity;
           if (p1.interactiveOpacity > 0 || p2.interactiveOpacity > 0) {
@@ -211,7 +209,7 @@ class PlexusNode {
     this.x = x; this.y = y;
     this.vx = (Math.random() - 0.5) * 0.3;
     this.vy = (Math.random() - 0.5) * 0.2 - 0.2; // Upward drift
-    this.baseRadius = Math.random() * 1.5 + 0.5;
+    this.baseRadius = Math.random() * 1.8 + 0.8;
     this.radius = this.baseRadius;
     this.colorBase = system.colors[Math.floor(Math.random() * system.colors.length)];
     this.interactiveOpacity = 0;
@@ -255,7 +253,7 @@ class PlexusNode {
 
   draw() {
     const ctx = this.system.ctx;
-    const opacity = 0.4 + this.interactiveOpacity * 0.6;
+    const opacity = 0.6 + this.interactiveOpacity * 0.4;
     
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -285,7 +283,7 @@ class DustNode {
     this.vy = -(Math.random() * 0.8 + 0.2);
     this.radius = Math.random() * 1.2 + 0.2;
     this.colorBase = this.system.colors[Math.floor(Math.random() * this.system.colors.length)];
-    this.opacity = Math.random() * 0.5 + 0.1;
+    this.opacity = Math.random() * 0.5 + 0.3;
   }
   update() {
     this.x += this.vx; this.y += this.vy;

@@ -14,14 +14,14 @@
 
 #hero {
   width: 100%;
-  max-width: 1200px;
+  max-width: none;
   margin: 0 auto;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   align-items: center;
-  padding: clamp(6rem, 10vw, 8rem) 2rem 4rem;
-  gap: clamp(1rem, 4vw, 3rem);
+  padding: calc(var(--nav-h) + 4vh) clamp(2rem, 10vw, 16rem) 4vh;
+  gap: clamp(2rem, 8vw, 8rem);
   position: relative;
   overflow: hidden;
 }
@@ -36,7 +36,7 @@
   font-weight: 700;
   font-style: italic;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(37,84,199,0.06);
+  -webkit-text-stroke: 1px rgba(37,84,199,0.04);
   pointer-events: none;
   -webkit-user-select: none;
   user-select: none;
@@ -65,7 +65,7 @@
 
 .hero-profile-img {
   display: block;
-  width: clamp(140px, 20vw, 240px);
+  width: clamp(180px, 25vw, 340px);
   height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
@@ -98,14 +98,14 @@
   color: var(--blue);
 }
 
-.hero-name-wrap { overflow: hidden; margin-bottom: 0.4rem; }
+.hero-name-wrap { overflow: hidden; padding-bottom: 0.25em; margin-bottom: 0.15rem; }
 
 .hero-name-line {
   display: block;
   font-family: var(--font-serif);
-  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-size: clamp(4.5rem, 10vw, 8.5rem);
   font-weight: 700;
-  line-height: 1.02;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   font-optical-sizing: auto;
   color: var(--ink);
@@ -119,9 +119,9 @@
 
 .hero-role {
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 2vw, 1.45rem);
-  font-weight: 500;
-  color: var(--slate);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 600;
+  color: var(--blue);
   margin-bottom: 2rem;
   opacity: 0;
   animation: fadeRise 0.6s 0.65s ease forwards;
@@ -145,7 +145,7 @@
 
 .hero-proof-item {
   font-family: var(--font-mono);
-  font-size: var(--text-sm);
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
   color: var(--slate);
   letter-spacing: 0.02em;
 }
@@ -153,9 +153,9 @@
 .hero-proof-item strong { color: var(--ink); font-weight: 600; }
 
 .hero-desc {
-  font-size: var(--text-md);
-  line-height: var(--leading);
-  color: var(--slate);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.7;
+  color: var(--ink);
   font-weight: 400;
   margin-bottom: 2.5rem;
   max-width: 62ch;
@@ -191,7 +191,7 @@
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 1.5rem 1.75rem;
+  padding: 1.75rem 2.25rem;
   display: flex;
   align-items: center;
   gap: 1.2rem;
@@ -209,8 +209,8 @@
 }
 
 .cred-icon {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -225,7 +225,7 @@
 .cred-icon.ink   { background: #e8e8f0; color: var(--slate); }
 
 .cred-label {
-  font-size: var(--text-xs);
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -235,7 +235,7 @@
 
 .cred-value {
   font-family: var(--font-serif);
-  font-size: var(--text-md);
+  font-size: clamp(1.1rem, 1.5vw, 1.45rem);
   font-weight: 700;
   color: var(--ink);
 }
@@ -244,7 +244,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-size: var(--text-sm);
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
   font-weight: 700;
   letter-spacing: 0.04em;
   padding: 0.45rem 1rem;

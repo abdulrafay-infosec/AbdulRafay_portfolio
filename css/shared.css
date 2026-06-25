@@ -147,7 +147,7 @@ nav {
   top: 0; left: 0; right: 0;
   width: 100%;
   min-height: var(--nav-h);
-  z-index: 500;
+  z-index: 600;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -176,7 +176,7 @@ nav.scrolled {
   letter-spacing: -0.02em;
 }
 
-.nav-logo em { font-style: italic; color: var(--blue); }
+.nav-logo em { font-style: italic; color: inherit; }
 
 .nav-right { display: flex; align-items: center; gap: 1.5rem; }
 
